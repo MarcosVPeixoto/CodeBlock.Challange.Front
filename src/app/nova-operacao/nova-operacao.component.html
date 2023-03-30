@@ -1,0 +1,37 @@
+<mat-card>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Tipo do Cargueiro</mat-label>
+        <mat-select [(ngModel)]="operacaoCargueiro.classeCargueiro">
+            <mat-option value=0>I</mat-option>
+            <mat-option value=1>II</mat-option>
+            <mat-option value=2>III</mat-option>
+            <mat-option value=3>IV</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="example-form-field">
+        <mat-label>Data de saída</mat-label>
+        <input matInput [matDatepicker]="datepicker1" [(ngModel)]="dataSaida">
+        <mat-datepicker-toggle matIconSuffix [for]="datepicker1"></mat-datepicker-toggle>
+        <mat-datepicker #datepicker1>
+            <mat-datepicker-actions>
+                <button mat-button matDatepickerCancel>Cancel</button>
+                <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+            </mat-datepicker-actions>
+        </mat-datepicker>
+    </mat-form-field>
+    <ngx-mat-timepicker [(ngModel)]="horaSaida"></ngx-mat-timepicker>
+    <mat-form-field appearance="fill" class="example-form-field">
+        <mat-label>Data de entrada</mat-label>
+        <input matInput [matDatepicker]="datepicker2" [(ngModel)]="dataEntrada">
+        <mat-datepicker-toggle matIconSuffix [for]="datepicker2"></mat-datepicker-toggle>
+        <mat-datepicker #datepicker2>
+            <mat-datepicker-actions>
+                <button mat-button matDatepickerCancel>Cancel</button>
+                <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+            </mat-datepicker-actions>
+        </mat-datepicker>
+    </mat-form-field>
+    <ngx-mat-timepicker [(ngModel)]="horaEntrada"></ngx-mat-timepicker>
+    <button mat-button (click)="cadastrar()">Cadastrar</button>
+</mat-card>

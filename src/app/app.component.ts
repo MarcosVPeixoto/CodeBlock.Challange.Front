@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { NovaOperacaoComponent } from './nova-operacao/nova-operacao.component';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'CodeBlock.Challenge.Front';
+  constructor(public dialog: MatDialog) {}
+
+  addOperacao():void{
+    const dialogRef = this.dialog.open(NovaOperacaoComponent,{
+      width: '250px'
+    });
+    dialogRef.afterClosed().subscribe(result =>{
+       
+    });
+  }
 }

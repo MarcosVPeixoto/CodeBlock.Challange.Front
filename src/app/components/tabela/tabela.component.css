@@ -1,0 +1,27 @@
+.carga-table {
+    width: 50%;
+    margin:20px auto;
+    
+  }
+  
+  .mat-column-demo-position {
+    width: 32px;
+    border-right: 1px solid currentColor;
+    padding-right: 24px;
+    text-align: center;
+  }
+  
+  .mat-column-carga-tipo-minerio {
+    padding-left: 16px;
+    font-size: 20px;
+  }
+  
+  .mat-column-data-recebimento {
+    font-style: italic;
+  }
+  
+  .mat-column-carga-valor {
+    width: 32px;
+    text-align: center;
+    font-weight: bold;
+  }

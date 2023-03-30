@@ -1,0 +1,51 @@
+<mat-card style="min-height: 300px; " >
+
+    <div>
+        <mat-form-field style="padding-left: 20px; padding-top: 20px;">
+            <mat-label>Mês</mat-label>
+            <mat-select [(ngModel)]="filtro.mes">
+                <mat-option value=1>Janeiro</mat-option>
+                <mat-option value=2>Fevereiro</mat-option>
+                <mat-option value=3>Março</mat-option>
+                <mat-option value=4>Abril</mat-option>
+                <mat-option value=5>Maio</mat-option>
+                <mat-option value=6>Junho</mat-option>
+                <mat-option value=7>Julho</mat-option>
+                <mat-option value=8>Agosto</mat-option>
+                <mat-option value=9>Setembro</mat-option>
+                <mat-option value=10>Outubro</mat-option>
+                <mat-option value=11>Novembro</mat-option>
+                <mat-option value=12>Dezembro</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="example-full-width" style="padding-left: 20px; padding-right: 20px;">
+            <mat-label>Ano</mat-label>
+            <input matInput placeholder="Ano" [(ngModel)]="filtro.ano" type="number">
+        </mat-form-field>
+        <button mat-button (click)="filtrar()" color="primary" style="background-color: antiquewhite;">Filtrar</button>
+    </div>
+    <table mat-table class="mat-elevation-z8 carga-table" [dataSource]="cargas" >
+        <ng-container matColumnDef="carga-tipo-minerio">
+            <th mat-header-cell *matHeaderCellDef>Tipo Minério</th>
+            <td mat-cell *matCellDef="let carga"> {{minerais[carga.mineral]}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="carga-data-recebimento">
+            <th mat-header-cell *matHeaderCellDef>Data Recebimento</th>
+            <td mat-cell *matCellDef="let carga"> {{carga.dataRecebimento}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="carga-valor">
+            <th mat-header-cell *matHeaderCellDef>Valor</th>
+            <td mat-cell *matCellDef="let carga"> {{carga.valor}} </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [length]="totalItemCount"
+              [pageSize]="10"
+              [pageSizeOptions]="[10]"
+              aria-label="Select page"
+              (page)="handlePageEvent($event)">
+</mat-paginator>
+</mat-card>
